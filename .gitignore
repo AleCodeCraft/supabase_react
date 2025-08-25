@@ -22,3 +22,27 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Google OAuth credentials
+google_client_secret.json
+google_credentials.json
+client_secret.json
+
+# Supabase credentials
+supabase_key.txt
+supabase_secret.txt
+
+# Other sensitive files
+secrets.json
+credentials.json
+*.key
+*.pem
+*.p12

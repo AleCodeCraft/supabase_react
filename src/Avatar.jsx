@@ -1,26 +1,16 @@
 import { useEffect, useState } from 'react'
 import { supabase } from './supabaseClient'
+import { getAvatarUrl, generateUniqueFileName } from './utils/storage'
 
 export default function Avatar({ url, size, onUpload }) {
   const [avatarUrl, setAvatarUrl] = useState(null)
   const [uploading, setUploading] = useState(false)
 
   useEffect(() => {
-    if (url) downloadImage(url)
-  }, [url])
-
-  async function downloadImage(path) {
-    try {
-      const { data, error } = await supabase.storage.from('avatars').download(path)
-      if (error) {
-        throw error
-      }
-      const url = URL.createObjectURL(data)
-      setAvatarUrl(url)
-    } catch (error) {
-      console.log('Error downloading image: ', error.message)
+    if (url) {
+      setAvatarUrl(getAvatarUrl(url))
     }
-  }
+  }, [url])
 
   async function uploadAvatar(event) {
     try {
@@ -31,8 +21,7 @@ export default function Avatar({ url, size, onUpload }) {
       }
 
       const file = event.target.files[0]
-      const fileExt = file.name.split('.').pop()
-      const fileName = `${Math.random()}.${fileExt}`
+      const fileName = generateUniqueFileName(file.name)
       const filePath = `${fileName}`
 
       const { error: uploadError } = await supabase.storage.from('avatars').upload(filePath, file)

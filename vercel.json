@@ -3,6 +3,10 @@
     {
       "source": "/auth/callback",
       "destination": "/index.html"
+    },
+    {
+      "source": "/((?!assets/|.*\\..*).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [

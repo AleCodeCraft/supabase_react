@@ -1,25 +1,70 @@
-# ===== DEPENDENCIES =====
+# Dependencies
 node_modules/
-.pnp
-.pnp.js
+pnpm-lock.yaml
+
+# Testing
+cypress_test/
+*.cy.js
+
+# Documentation and custom features
+funzionalita_Custom/
+README_*.md
+Regole_Promt.md
+Supabase_Examples.md
+GOOGLE_OAUTH_SETUP.md
+
+# Database scripts
+script_SQL/
+
+# Local configuration files
+google_client_secret.json
+.env.local
+.env.development
+
+# Build artifacts (Vercel li ricrea)
+dist/
+build/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output
+
+# Dependency directories
 jspm_packages/
 
-# ===== BUILD OUTPUTS =====
-dist/
-dist-ssr/
-build/
-*.local
-.next/
-.nuxt/
-.vite/
+# Optional npm cache directory
+.npm
 
-# ===== ENVIRONMENT VARIABLES =====
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env.*.local
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
 
 # ===== SUPABASE =====
 .supabase/
@@ -30,7 +75,6 @@ supabase/db/dump.sql
 supabase/seed.sql
 
 # ===== SECURITY & CREDENTIALS =====
-google_client_secret.json
 google_credentials.json
 *.json.key
 client_secret*.json
@@ -42,41 +86,22 @@ client_secret*.json
 secrets/
 .secrets/
 
-# ===== LOGS =====
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
 # ===== CACHE =====
 .cache/
 .parcel-cache/
 .turbo/
-.npm/
 .eslintcache
 *.tsbuildinfo
 
 # ===== TESTING =====
-coverage/
-.nyc_output/
 .jest/
 *.lcov
 
-# ===== RUNTIME =====
-pids
-*.pid
-*.seed
-*.pid.lock
-
 # ===== PACKAGES =====
-*.tgz
-.yarn-integrity
+.pnp
+.pnp.js
 package-lock.json
 yarn.lock
-pnpm-lock.yaml
 
 # ===== EDITOR =====
 .vscode/*
@@ -84,21 +109,16 @@ pnpm-lock.yaml
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
-.idea/
-*.swp
-*.swo
 *~
 
 # ===== OS FILES =====
 # macOS
-.DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
 
 # Windows
-Thumbs.db
 ehthumbs.db
 *.suo
 *.ntvs*
@@ -141,7 +161,6 @@ cypress_test/downloads/
 cypress_test/fixtures/example.json
 cypress.env.json
 cypress.config.local.js
-cypress.config.local.js
 
 # ===== PERFORMANCE & BUNDLE ANALYSIS =====
 bundle-analyzer-report.html
@@ -150,11 +169,8 @@ webpack-bundle-analyzer-report.html
 *.bundle.js.LICENSE.txt
 
 # ===== DEVELOPMENT TOOLS =====
-.eslintcache
 .stylelintcache
 .prettierignore
-.env.development
-.env.test
 
 # ===== BACKUP FILES =====
 *.bak
@@ -163,6 +179,9 @@ webpack-bundle-analyzer-report.html
 *.orig
 *.tmp
 
-# ===== LOCK FILES (mantieni solo pnpm-lock.yaml) =====
-package-lock.json
-yarn.lock
+# ===== ENVIRONMENT VARIABLES =====
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local

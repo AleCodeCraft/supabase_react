@@ -1,103 +1,75 @@
-# 🚀 REGOLE PROGETTO ARENA STILENUOVO
+# Regole Prompt per Arena Project
 
-## 📋 **REGOLE OBBLIGATORIE - SEMPRE APPLICARE:**
+## 🚀 REGOLE GENERALI
+- **SEMPRE** rispondi in italiano
+- Usa emoji per rendere le risposte più chiare e piacevoli
+- Sii preciso e dettagliato nelle spiegazioni
+- Fornisci esempi pratici quando possibile
 
-### **1. 🎨 STYLING**
-- ✅ **SOLO Tailwind CSS** - Mai CSS inline o custom
-- ✅ **Tema scuro** - Sempre applicato
-- ✅ **Mobile-first** - Design responsive sempre
+## 📁 GESTIONE FILE DI ESCLUSIONE (CRITICO!)
+### Sincronizzazione Automatica .gitignore ↔ .vercelignore
+- **OGNI VOLTA** che si modifica il `.gitignore`, aggiorna **AUTOMATICAMENTE** anche il `.vercelignore`
+- **OGNI VOLTA** che si modifica il `.vercelignore`, aggiorna **AUTOMATICAMENTE** anche il `.gitignore`
+- Mantieni sempre **PERFETTA SINCRONIZZAZIONE** tra i due file
+- Se un file viene aggiunto/rimosso da uno, deve essere aggiunto/rimosso anche dall'altro
 
-### **2. 🌍 LINGUAGGIO**
-- ✅ **Sempre in italiano** - Tutte le risposte e il codice
-- ✅ **Commenti semplici** - Spiegazioni chiare e concise
+### Verifica Pre-Commit OBBLIGATORIA
+**PRIMA DI OGNI COMMIT:**
+1. ✅ Verifica che `.gitignore` e `.vercelignore` siano sincronizzati
+2. ✅ Controlla che non ci siano file sensibili esposti
+3. ✅ Verifica che le cartelle pesanti (node_modules, dist, etc.) siano escluse
+4. ✅ Controlla che i file di test e documentazione siano esclusi dal deploy
+5. ✅ Assicurati che i file di configurazione locale siano protetti
 
-### **3. 📦 GESTIONE PACCHETTI**
-- ✅ **Sempre pnpm** - Mai npm o yarn
-- ✅ **Comandi corretti**: `pnpm add`, `pnpm dev`, `pnpm build`
+## 🔒 SICUREZZA
+- **MAI** committare file con password, API key o credenziali
+- **MAI** committare file `.env` con dati sensibili
+- **MAI** committare cartelle `node_modules/`
+- **MAI** committare file di build (`dist/`, `build/`)
 
-### **4. ⚡ SETUP PROGETTO REACT + VITE**
-- ✅ **Sempre JavaScript + SWC** - Mai TypeScript per questo progetto
-- ✅ **Comando creazione**: `pnpm create vite@latest nome-progetto -- --template react`
-- ✅ **Dependencies minime**: Solo pacchetti essenziali
-- ✅ **Vite config ottimizzato** per performance massime
-- ✅ **Build ottimizzata** con compressione e tree-shaking
+## 🧪 TESTING
+- Mantieni sempre i test funzionanti
+- I file di test devono essere nel `.gitignore` ma **NON** nel `.vercelignore`
+- I test devono funzionare localmente e in CI/CD
 
-### **5. 📱 RESPONSIVE**
-- ✅ **Mobile-first** sempre
-- ✅ **Breakpoints**: `sm:`, `md:`, `lg:`, `xl:`
-- ✅ **Touch-friendly** per mobile
+## 📚 DOCUMENTAZIONE
+- Mantieni aggiornato il README.md
+- Documenta tutte le modifiche importanti
+- Aggiorna la documentazione quando si aggiungono nuove funzionalità
 
-### **6. 🔧 CODICE**
-- ✅ **Componenti React** funzionali
-- ✅ **Hooks personalizzati** solo se necessario
-- ✅ **Codice leggero** - Evitare over-engineering
-- ✅ **Performance first** - Lazy loading e ottimizzazioni
+## 🚀 DEPLOY
+- Verifica sempre che il `.vercelignore` sia corretto prima del deploy
+- Controlla che non ci siano file inutili che rallentano il build
+- Assicurati che solo i file necessari per la produzione vengano deployati
 
-### **7. 🚀 VELOCITÀ E ROBUSTEZZA**
-- ✅ **Bundle splitting** automatico con Vite
-- ✅ **HMR (Hot Module Replacement)** sempre attivo
-- ✅ **Error boundaries** per gestione errori
-- ✅ **Lazy loading** per componenti pesanti
-- ✅ **Preload critici** per performance
-
----
-
-## 🚫 **MAI FARE:**
-- ❌ CSS inline o custom
-- ❌ npm o yarn
-- ❌ Tema chiaro
-- ❌ Design desktop-first
-- ❌ Commenti complessi
-- ❌ Risposte in inglese
-- ❌ TypeScript (per questo progetto)
-- ❌ Pacchetti non necessari
-- ❌ Over-engineering del codice
-
----
-
-## 📝 **ESEMPIO APPLICAZIONE:**
-```jsx
-// ✅ CORRETTO
-<div className="min-h-screen bg-dark-950 text-text-primary p-4 md:p-6">
-  <h1 className="text-2xl md:text-4xl font-bold text-gold-400">
-    Titolo in Italiano
-  </h1>
-</div>
-
-// ❌ SBAGLIATO
-<div style={{minHeight: '100vh', backgroundColor: '#fff'}}>
-  <h1 style={{fontSize: '24px', color: 'blue'}}>
-    English Title
-  </h1>
-</div>
+## ⚠️ CHECKLIST PRE-COMMIT
+```
+□ .gitignore e .vercelignore sono sincronizzati
+□ File sensibili sono protetti
+□ Cartelle pesanti sono escluse
+□ Test funzionano localmente
+□ Documentazione è aggiornata
+□ Nessun file di build viene committato
+□ Nessuna credenziale è esposta
 ```
 
----
-
-## 🛠️ **COMANDI PROGETTO BASE:**
+## 🔄 COMANDI UTILI
 ```bash
-# Creazione progetto
-pnpm create vite@latest nome-progetto -- --template react
+# Verifica stato git
+git status
 
-# Installazione dipendenze
-pnpm install
+# Verifica file ignorati
+git check-ignore *
 
-# Sviluppo
-pnpm dev
+# Verifica file che verranno committati
+git diff --cached
 
-# Build produzione
-pnpm build
-
-# Preview build
-pnpm preview
-
-# Aggiunta pacchetti
-pnpm add nome-pacchetto
-
-# Rimozione pacchetti
-pnpm remove nome-pacchetto
+# Verifica sincronizzazione
+diff .gitignore .vercelignore
 ```
 
----
-
-**Queste regole sono FISSE e DEVONO essere applicate SEMPRE!** 🎯
+## 📝 NOTE IMPORTANTI
+- Queste regole sono **CRITICHE** per la sicurezza e performance del progetto
+- **NON IGNORARE MAI** la verifica pre-commit
+- **SEMPRE** sincronizzare i file di esclusione
+- In caso di dubbi, **VERIFICA PRIMA** di committare

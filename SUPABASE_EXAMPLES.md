@@ -26,7 +26,7 @@ const { data, error } = await supabase.auth.signInWithPassword({
 })
 ```
 
-### ✉️ LOGIN CON MAGIC LINK (OTP)
+### LOGIN CON MAGIC LINK (OTP)
 ```javascript
 const { data, error } = await supabase.auth.signInWithOtp({
   email: email,
@@ -95,7 +95,7 @@ const { data, error } = await supabase
   .select()
 ```
 
-### ✏️ AGGIORNAMENTO DATI (UPDATE)
+### AGGIORNAMENTO DATI (UPDATE)
 ```javascript
 const { data, error } = await supabase
   .from('profiles')
@@ -104,7 +104,7 @@ const { data, error } = await supabase
   .select()
 ```
 
-### 🗑️ ELIMINAZIONE DATI (DELETE)
+### ELIMINAZIONE DATI (DELETE)
 ```javascript
 const { error } = await supabase
   .from('profiles')
@@ -160,7 +160,7 @@ const { data, error } = await supabase.storage
   })
 ```
 
-### 🗑️ ELIMINA FILE
+### ELIMINA FILE
 ```javascript
 const { error } = await supabase.storage
   .from(bucketName)

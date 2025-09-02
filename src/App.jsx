@@ -1,46 +1,67 @@
-import './App.css'
-import { useState, useEffect } from 'react'
-import { supabase } from './supabaseClient'
-import Auth from './Auth'
-import SignUp from './SignUp'
-import Account from './Account'
-import ErrorBoundary from './components/ErrorBoundary'
+
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+import { useAuth } from './shared/hooks/useAuth'
+import ProtectedRoute from './shared/components/ProtectedRoute'
+import ErrorBoundary from './utils/ErrorBoundary'
+//import HealthMonitor from './shared/components/HealthMonitor'
+
+// Lazy loading per componenti pesanti
+const Login = lazy(() => import('./features/auth/Login'))
+const SignUp = lazy(() => import('./features/auth/SignUp'))
+const Home = lazy(() => import('./features/dashboard/Home'))
+const NotFound = lazy(() => import('./features/dashboard/NotFound'))
+
+// Loading component con spaziature perfette
+const LoadingSpinner = () => (
+  <div className="min-h-screen bg-dark-950 flex items-center justify-center p-4 md:p-6 lg:p-8">
+    <div className="text-center space-y-4 md:space-y-6">
+      <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gold-400 mx-auto"></div>
+      <p className="text-gold-400 text-lg">Caricamento...</p>
+    </div>
+  </div>
+)
 
 function App() {
-  const [session, setSession] = useState(null)
-  const [currentPage, setCurrentPage] = useState('login')
+  const { session, loading } = useAuth()
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
-
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-  }, [])
-
-  // Se l'utente è autenticato, mostra il profilo
-  if (session) {
-    return (
-      <ErrorBoundary>
-        <div className="container" style={{ padding: '50px 0 100px 0' }}>
-          <Account key={session.user.id} session={session} />
-        </div>
-      </ErrorBoundary>
-    )
+  if (loading) {
+    return <LoadingSpinner />
   }
 
-  // Se l'utente non è autenticato, mostra login o registrazione
   return (
     <ErrorBoundary>
-      <div className="container" style={{ padding: '50px 0 100px 0' }}>
-        {currentPage === 'login' ? (
-          <Auth onSwitchToSignUp={() => setCurrentPage('signup')} />
-        ) : (
-          <SignUp onSwitchToLogin={() => setCurrentPage('login')} />
-        )}
-      </div>
+      <Router>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            {/* Route pubbliche */}
+            <Route 
+              path="/login" 
+              element={session ? <Navigate to="/" replace /> : <Login />} 
+            />
+            <Route 
+              path="/signup" 
+              element={session ? <Navigate to="/" replace /> : <SignUp />} 
+            />
+            
+            {/* Route protette */}
+            <Route 
+              path="/" 
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              } 
+            />
+            
+            {/* Route 404 */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+        
+        {/* <HealthMonitor /> */}
+        
+      </Router>
     </ErrorBoundary>
   )
 }

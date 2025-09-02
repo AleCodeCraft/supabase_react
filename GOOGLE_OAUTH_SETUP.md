@@ -9,7 +9,7 @@ Before starting, ensure you have:
 - Access to your Supabase project dashboard
 - Your application running locally
 
-## 🚀 Step-by-Step Setup
+## Step-by-Step Setup
 
 ### Step 1: Create Google Cloud Project
 
@@ -91,7 +91,7 @@ Before starting, ensure you have:
 ### Step 5: Download Credentials
 
 1. **Download JSON File**
-   - In the credentials page, click the download icon (⬇️) next to your OAuth client
+   - In the credentials page, click the download icon next to your OAuth client
    - Save the file as `google_client_secret.json` in your project root
    - **Important**: This file is already in `.gitignore` for security
 
@@ -159,7 +159,7 @@ Before starting, ensure you have:
    - You should be redirected to Google's OAuth consent screen
    - After authorization, you should be redirected back to your app
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Common Issues and Solutions
 
@@ -229,7 +229,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-public-key
 VITE_GOOGLE_CLIENT_ID=your-google-client-id
 ```
 
-## 📱 Mobile Considerations
+## Mobile Considerations
 
 ### PWA Support
 If you're building a PWA, add these origins to Google Cloud Console:

@@ -9,6 +9,8 @@ import ErrorBoundary from './utils/ErrorBoundary'
 // Lazy loading per componenti pesanti
 const Login = lazy(() => import('./features/auth/Login'))
 const SignUp = lazy(() => import('./features/auth/SignUp'))
+const ForgotPassword = lazy(() => import('./features/auth/ForgotPassword'))
+const ResetPassword = lazy(() => import('./features/auth/ResetPassword'))
 const Home = lazy(() => import('./features/dashboard/Home'))
 const NotFound = lazy(() => import('./features/dashboard/NotFound'))
 
@@ -42,6 +44,14 @@ function App() {
             <Route 
               path="/signup" 
               element={session ? <Navigate to="/" replace /> : <SignUp />} 
+            />
+            <Route 
+              path="/forgot-password" 
+              element={session ? <Navigate to="/" replace /> : <ForgotPassword />} 
+            />
+            <Route 
+              path="/reset-password" 
+              element={<ResetPassword />} 
             />
             
             {/* Route protette */}

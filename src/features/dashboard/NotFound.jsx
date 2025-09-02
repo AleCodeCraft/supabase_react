@@ -23,26 +23,19 @@ const NotFound = memo(() => {
         </div>
         
         <h1 className="text-3xl md:text-4xl font-bold text-gold-400 mb-4">
-          Pagina Non Trovata! 😵
+          Pagina Non Trovata
         </h1>
         
         <p className="text-xl text-text-primary/80 mb-8">
           Ops! La pagina che stai cercando non esiste o è stata spostata.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex justify-center">
           <Button
             variant="primary"
             onClick={handleGoHome}
           >
-            🏠 Torna alla Home
-          </Button>
-          
-          <Button
-            variant="secondary"
-            onClick={handleGoBack}
-          >
-            Torna Indietro
+            Torna alla Home
           </Button>
         </div>
       </div>

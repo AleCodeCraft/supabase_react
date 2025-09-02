@@ -123,6 +123,15 @@ const Login = memo(() => {
                 Registrati
               </Button>
             </a>
+            
+            <div className="mt-4">
+              <a 
+                href="/forgot-password"
+                className="text-gold-400 hover:text-gold-300 text-sm underline underline-offset-2 transition-colors"
+              >
+                Ho dimenticato la password
+              </a>
+            </div>
           </div>
         </div>
       </div>

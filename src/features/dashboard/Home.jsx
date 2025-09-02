@@ -4,9 +4,8 @@ import { Button } from '../../shared/components/Button'
 import { memo, useCallback } from 'react'
 
 // ✅ CORRETTO - Componente FeatureCard memoizzato per evitare re-render
-const FeatureCard = memo(({ icon, title, description }) => (
+const FeatureCard = memo(({ title, description }) => (
   <div className="bg-surface-secondary rounded-2xl p-8 border border-gold-400/20 hover:border-gold-400/40 transition-all duration-300">
-    <div className="text-4xl mb-4">{icon}</div>
     <h3 className="text-xl font-semibold text-gold-400 mb-3">{title}</h3>
     <p className="text-text-primary/70">{description}</p>
   </div>
@@ -64,7 +63,7 @@ const Home = memo(() => {
                 size="sm"
                 onClick={handleLogout}
               >
-                🚪 Logout
+                Logout
               </Button>
             </div>
           </div>
@@ -86,7 +85,6 @@ const Home = memo(() => {
             {featureCards.map((feature, index) => (
               <FeatureCard
                 key={`feature-${index}`}
-                icon={feature.icon}
                 title={feature.title}
                 description={feature.description}
               />

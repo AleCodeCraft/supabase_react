@@ -9,15 +9,3 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-// Registra il service worker per caching e funzionalità offline
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then((registration) => {
-        console.log('SW registrato:', registration)
-      })
-      .catch((registrationError) => {
-        console.log('SW registrazione fallita:', registrationError)
-      })
-  })
-}

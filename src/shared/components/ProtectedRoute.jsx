@@ -36,8 +36,8 @@ const ProtectedRoute = memo(({ children }) => {
     return (
       <div className="min-h-screen bg-dark-950 flex items-center justify-center p-4 md:p-6 lg:p-8">
         <div className="text-center space-y-4 md:space-y-6">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-gold-400 mx-auto"></div>
-          <p className="text-gold-400 text-lg">Verifica autenticazione...</p>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-green-400 mx-auto"></div>
+          <p className="text-green-400 text-lg">Verifica autenticazione...</p>
         </div>
       </div>
     )

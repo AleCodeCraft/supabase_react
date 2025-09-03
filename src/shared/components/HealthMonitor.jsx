@@ -109,9 +109,9 @@ const HealthMonitor = memo(() => {
 
   return (
     <div id="health-monitor" className="fixed bottom-4 right-4 z-50">
-      <div className="bg-dark-900 border border-gold-400/20 rounded-lg p-4 shadow-2xl max-w-xs">
+      <div className="bg-dark-900 border border-green-600/20 rounded-lg p-4 shadow-2xl max-w-xs">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-semibold text-gold-400">Stato Sistema</h3>
+          <h3 className="text-sm font-semibold text-green-400">Stato Sistema</h3>
           <button
             onClick={() => setShowDetails(false)}
             className="text-text-primary/50 hover:text-text-primary"
@@ -147,7 +147,7 @@ const HealthMonitor = memo(() => {
         
         <button
           onClick={checkHealth}
-          className="w-full mt-3 px-3 py-2 bg-gold-400 hover:bg-gold-300 text-dark-950 text-xs font-medium rounded transition-colors"
+          className="w-full mt-3 px-3 py-2 bg-green-600 hover:bg-green-500 text-white text-xs font-medium rounded transition-colors"
         >
           Ricontrolla
         </button>

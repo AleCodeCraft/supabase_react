@@ -1,8 +1,11 @@
 {
-  "name": "base-react",
+  "name": "react-app-base",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Template base React con autenticazione Supabase, React 19, Vite e Tailwind CSS",
+  "keywords": ["react", "supabase", "vite", "tailwind", "authentication", "template"],
+  "author": "AleCodeCraft",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

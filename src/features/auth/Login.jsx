@@ -37,11 +37,11 @@ const Login = memo(() => {
   return (
     <div className="flex justify-center items-center min-h-screen p-4 md:p-6 lg:p-8">
       <div className="w-full max-w-md">
-        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-gold-400/20">
-          <h1 className="text-3xl md:text-4xl font-bold text-gold-400 text-center mb-4">
+        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-green-600/20">
+          <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
             Benvenuto
           </h1>
-          <p className="text-text-primary/70 text-center mb-8 text-lg">
+          <p className="text-text-secondary text-center mb-8 text-lg">
             Accedi al tuo account
           </p>
           
@@ -88,9 +88,9 @@ const Login = memo(() => {
 
           {/* Separatore */}
           <div className="flex items-center my-8">
-            <div className="flex-1 border-t border-dark-900"></div>
-            <span className="px-4 text-text-primary/50 text-sm">oppure</span>
-            <div className="flex-1 border-t border-dark-900"></div>
+            <div className="flex-1 border-t border-surface-tertiary"></div>
+            <span className="px-4 text-text-muted text-sm">oppure</span>
+            <div className="flex-1 border-t border-surface-tertiary"></div>
           </div>
 
           {/* Bottone Google */}
@@ -112,7 +112,7 @@ const Login = memo(() => {
           </Button>
 
           <div className="mt-8 text-center">
-            <p className="text-text-primary/70 mb-4">
+            <p className="text-text-secondary mb-4">
               Non hai ancora un account?
             </p>
             <a 
@@ -127,7 +127,7 @@ const Login = memo(() => {
             <div className="mt-4">
               <a 
                 href="/forgot-password"
-                className="text-gold-400 hover:text-gold-300 text-sm underline underline-offset-2 transition-colors"
+                className="text-green-400 hover:text-green-300 text-sm underline underline-offset-2 transition-colors"
               >
                 Ho dimenticato la password
               </a>

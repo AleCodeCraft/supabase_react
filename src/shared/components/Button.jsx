@@ -10,10 +10,10 @@ export const Button = memo(({
   const baseClasses = "font-semibold rounded-2xl transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
   
   const variants = {
-    primary: "bg-gradient-to-r from-gold-400 to-gold-300 text-dark-950 hover:from-gold-300 hover:to-gold-400",
-    secondary: "bg-transparent text-gold-400 border-2 border-gold-400 hover:bg-gold-400 hover:text-dark-950",
+    primary: "bg-gradient-to-r from-green-600 to-green-500 text-white hover:from-green-500 hover:to-green-400",
+    secondary: "bg-transparent text-green-400 border-2 border-green-400 hover:bg-green-400 hover:text-dark-950",
     danger: "bg-transparent text-red-400 border-2 border-red-400 hover:bg-red-400 hover:text-dark-950",
-    ghost: "bg-transparent text-gold-400 hover:bg-gold-400/10"
+    ghost: "bg-transparent text-green-400 hover:bg-green-400/10"
   }
   
   const sizes = {

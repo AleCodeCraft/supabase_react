@@ -18,8 +18,8 @@ export const Input = memo(({
   const [hasBlurred, setHasBlurred] = useState(false)
   const validationTimeoutRef = useRef(null)
   
-  const baseClasses = "w-full px-6 py-4 bg-dark-900 border-2 rounded-2xl text-text-primary placeholder-text-primary/50 focus:outline-none transition-all duration-300"
-  const disabledClasses = disabled ? "bg-dark-900/50 text-text-primary/50 cursor-not-allowed" : ""
+  const baseClasses = "w-full px-6 py-4 bg-surface-primary border-2 rounded-2xl text-text-primary placeholder-text-muted focus:outline-none transition-all duration-300"
+  const disabledClasses = disabled ? "bg-surface-primary/50 text-text-muted cursor-not-allowed" : ""
   
   // Validazione debounced per performance - solo dopo 500ms di inattività
   const getValidationResult = useMemo(() => {
@@ -38,12 +38,12 @@ export const Input = memo(({
   }, [validation, value, hasBlurred])
   
   const getBorderClasses = useMemo(() => {
-    if (disabled) return "border-dark-900/50"
+    if (disabled) return "border-surface-tertiary/50"
     if (error) return "border-red-500" // Priorità agli errori esterni
     if (getValidationResult && !getValidationResult.isValid && getValidationResult.error) return "border-red-500"
     if (getValidationResult && getValidationResult.suggestions && getValidationResult.suggestions.length > 0) return "border-yellow-500"
-    if (isFocused) return "border-gold-400"
-    return "border-dark-900"
+    if (isFocused) return "border-green-400"
+    return "border-surface-tertiary"
   }, [disabled, error, getValidationResult, isFocused])
   
   const handleFocus = useCallback(() => {

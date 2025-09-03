@@ -1,48 +1,59 @@
-# Arena - App di Autenticazione React
+# React App Base
 
-> **App moderna di autenticazione** costruita con React, Vite e Supabase
+> **Template base moderno** con autenticazione Supabase, React 19, Vite e Tailwind CSS
 
 [![React](https://img.shields.io/badge/React-19.1.1-blue.svg)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-7.1.2-purple.svg)](https://vitejs.dev)
+[![Vite](https://img.shields.io/badge/Vite-7.1.3-purple.svg)](https://vitejs.dev)
 [![Supabase](https://img.shields.io/badge/Supabase-2.56.0-green.svg)](https://supabase.com)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.17-38B2AC.svg)](https://tailwindcss.com)
 
 ## ✨ Caratteristiche
 
-### 🔐 Autenticazione
+### 🔐 Autenticazione Completa
 - ✅ **Email/Password** - Login e registrazione tradizionale
 - ✅ **Google OAuth** - Accesso con un click
 - ✅ **Gestione sessioni** - Automatica e persistente
 - ✅ **Logout sicuro** - Terminazione completa
+- ✅ **Reset password** - Recupero password via email
 
-### 👤 Gestione Utente
-- ✅ **Profilo utente** - Aggiorna nome, website, avatar
-- ✅ **Upload avatar** - Carica e gestisci foto profilo
-- ✅ **Aggiornamenti real-time** - Sincronizzazione istantanea
-- ✅ **Design responsive** - Funziona su tutti i dispositivi
+### ⚡ Performance Ottimizzate
+- ✅ **Lazy loading** - Caricamento componenti on-demand
+- ✅ **Bundle splitting** - Chunk separati per librerie
+- ✅ **Memoizzazione** - useCallback e useMemo ottimizzati
+- ✅ **Error boundaries** - Gestione errori robusta
 
-### Tecnologie
+### 🎨 Design System
+- ✅ **Tema dark** - Palette colori personalizzabile
+- ✅ **Componenti riutilizzabili** - Button, Input, Loading
+- ✅ **Responsive design** - Mobile-first approach
+- ✅ **Tailwind CSS** - Utility-first CSS framework
+
+### 🛠️ Stack Tecnologico
 - **Frontend**: React 19 + Vite + Tailwind CSS
 - **Backend**: Supabase (PostgreSQL + Auth + Storage)
 - **Sicurezza**: Row Level Security + JWT
-- **Performance**: Lazy loading + Bundle splitting
+- **Testing**: Cypress E2E + ESLint
 
-## Quick Start
+## 🚀 Quick Start
 
-### 1. **Clona il repository**
+### 1. **Clona il template**
 ```bash
-git clone https://github.com/yourusername/arena.git
-cd arena
+git clone https://github.com/yourusername/react-app-base.git
+cd react-app-base
 ```
 
 ### 2. **Installa dipendenze**
 ```bash
 pnpm install
+# oppure
+npm install
+# oppure
+yarn install
 ```
 
 ### 3. **Configura Supabase**
 ```bash
-# Crea file .env
+# Crea file .env nella root del progetto
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key
 ```
@@ -50,6 +61,10 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key
 ### 4. **Avvia sviluppo**
 ```bash
 pnpm dev
+# oppure
+npm run dev
+# oppure
+yarn dev
 ```
 
 > 🌐 App disponibile su `http://localhost:5173`
@@ -57,19 +72,36 @@ pnpm dev
 ## 📁 Struttura Progetto
 
 ```
-arena/
+react-app-base/
 ├── src/
-│   ├── authentication/
-│   │   ├── Login.jsx         # Login/Signup
-│   │   ├── SignUp.jsx        # Registrazione
-│   │   └── supabaseClient.js # Configurazione Supabase
-│   ├── components/
-│   │   ├── Account.jsx       # Profilo utente
-│   │   └── Avatar.jsx        # Upload avatar
-│   ├── utils/
-│   │   ├── storage.js        # Gestione file storage
-│   │   ├── OptimizedImage.jsx # Componente immagine ottimizzata
-│   │   └── ErrorBoundary.jsx # Gestione errori app
+│   ├── features/
+│   │   ├── auth/             # Autenticazione
+│   │   │   ├── Login.jsx     # Login
+│   │   │   ├── SignUp.jsx    # Registrazione
+│   │   │   ├── ForgotPassword.jsx
+│   │   │   ├── ResetPassword.jsx
+│   │   │   └── supabaseClient.js
+│   │   ├── dashboard/        # Dashboard
+│   │   │   ├── Home.jsx      # Home page
+│   │   │   └── NotFound.jsx  # 404 page
+│   │   └── profile/          # Profilo utente (da implementare)
+│   ├── shared/
+│   │   ├── components/       # Componenti riutilizzabili
+│   │   │   ├── Button.jsx
+│   │   │   ├── Input.jsx
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   └── HealthMonitor.jsx
+│   │   └── hooks/            # Custom hooks
+│   │       ├── useAuth.js
+│   │       └── useNetworkOperation.js
+│   ├── utils/                # Utility
+│   │   ├── ErrorBoundary.jsx
+│   │   ├── OptimizedImage.jsx
+│   │   ├── storage.js
+│   │   ├── validationUtils.js
+│   │   ├── errorHandler.js
+│   │   ├── networkUtils.js
+│   │   └── retryUtils.js
 │   ├── App.jsx               # Componente principale
 │   ├── index.css             # Stili globali
 │   └── main.jsx              # Entry point
@@ -77,17 +109,19 @@ arena/
 │   ├── e2e/                  # Test end-to-end
 │   ├── support/              # File di supporto
 │   └── fixtures/             # Dati di test
+├── script_SQL/              # Schema database
 ├── public/                   # Asset statici
-└── script_SQL/              # Schema database
+└── docs/                     # Documentazione
 ```
 
-## Design System
+## 🎨 Design System
 
 ### **Paletta Colori**
 - `dark-950` - Nero profondo (#0a0a0a)
 - `dark-900` - Nero (#1a1a1a)
-- `gold-400` - Gold primario (#fbbf24)
-- `gold-300` - Gold hover (#fcd34d)
+- `green-600` - Verde primario (#16a34a)
+- `green-500` - Verde secondario (#22c55e)
+- `green-400` - Verde hover (#4ade80)
 - `surface-secondary` - Superfici (#2a2a2a)
 - `text-primary` - Testo bianco (#ffffff)
 
@@ -96,7 +130,7 @@ arena/
 - **Breakpoints**: `sm:`, `md:`, `lg:`, `xl:`
 - **Touch-friendly** per mobile
 
-## Configurazione
+## ⚙️ Configurazione
 
 ### **Variabili Ambiente**
 ```env
@@ -107,22 +141,17 @@ VITE_GOOGLE_CLIENT_ID=your-google-client-id
 
 ### **Database Schema**
 ```sql
--- Tabella profili
-CREATE TABLE profiles (
+-- Tabella utenti (vedi script_SQL/01-users.sql)
+CREATE TABLE users (
   id UUID REFERENCES auth.users PRIMARY KEY,
+  email TEXT UNIQUE NOT NULL,
   username TEXT UNIQUE,
   full_name TEXT,
   avatar_url TEXT,
-  website TEXT,
-  updated_at TIMESTAMP WITH TIME ZONE
+  role TEXT DEFAULT 'user',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 ```
-
-## Screenshots
-
-| Login | Registrazione | Profilo |
-|-------|---------------|---------|
-| ![Login](screenshots/login.png) | ![Signup](screenshots/signup.png) | ![Profile](screenshots/profile.png) |
 
 ## 🧪 Testing
 
@@ -138,29 +167,15 @@ pnpm cypress:run
 npx cypress run --spec "cypress_test/e2e/auth.cy.js"
 ```
 
-### **Routing e Navigazione**
-- **React Router** - Routing completo con protezione
-- 🔒 **Route Protette** - Home e Profile richiedono autenticazione
-- 🔄 **Redirect Automatici** - Dopo login/logout
-- 🚫 **404 Page** - Gestione route non trovate
-
 ### **Test Disponibili**
 - ✅ **Authentication** - Login, registrazione, validazione
-- ✅ **User Profile** - Gestione profilo, avatar, logout
 - ✅ **Responsive Design** - Mobile, tablet, desktop
 - ✅ **Error Handling** - Gestione errori e stati
-
-### **Struttura Componenti**
-- 🔐 **Features/Auth** - Login, SignUp, supabaseClient
-- 👤 **Features/Profile** - Account, Avatar
-- 🏠 **Features/Dashboard** - Home, NotFound
-- **Shared/Components** - Button, Input, ProtectedRoute
-- **Shared/Hooks** - useAuth
-- **Utils** - Storage, ErrorBoundary, OptimizedImage
+- ✅ **Form Validation** - Validazione input e messaggi
 
 > 📖 Vedi [cypress_test/README.md](cypress_test/README.md) per dettagli completi
 
-## Deploy
+## 🚀 Deploy
 
 ### **Build Produzione**
 ```bash
@@ -168,18 +183,33 @@ pnpm build
 ```
 
 ### **Piattaforme Supportate**
-- ✅ **Vercel** - Deploy automatico
+- ✅ **Vercel** - Deploy automatico (configurazione inclusa)
 - ✅ **Netlify** - Drag & drop
 - ✅ **Firebase** - CLI deployment
 - ✅ **GitHub Pages** - Actions workflow
 
-## 🤝 Contribuire
+## 🛠️ Personalizzazione
 
-1. **Fork** il repository
-2. **Crea** branch feature (`git checkout -b feature/nuova-feature`)
-3. **Commit** modifiche (`git commit -m 'Aggiungi feature'`)
-4. **Push** al branch (`git push origin feature/nuova-feature`)
-5. **Apri** Pull Request
+### **Come Personalizzare il Template**
+
+1. **Cambia il nome dell'app**:
+   - Aggiorna `index.html` (title, meta description)
+   - Modifica `package.json` (name, description)
+   - Aggiorna `src/features/dashboard/Home.jsx`
+
+2. **Personalizza i colori**:
+   - Modifica `tailwind.config.js` per cambiare la palette
+   - Aggiorna i componenti per usare i nuovi colori
+
+3. **Aggiungi nuove funzionalità**:
+   - Crea nuovi componenti in `src/features/`
+   - Aggiungi nuove route in `src/App.jsx`
+   - Estendi il database schema in `script_SQL/`
+
+4. **Configura il branding**:
+   - Sostituisci `/vite.svg` con il tuo logo
+   - Aggiorna i meta tag per SEO
+   - Personalizza i messaggi e testi
 
 ## 📄 Licenza
 
@@ -196,9 +226,9 @@ MIT License - vedi [LICENSE](LICENSE) per dettagli
 
 <div align="center">
 
-**Costruito con React, Vite e Supabase**
+**Template base per i tuoi progetti React**
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/arena?style=social)](https://github.com/yourusername/arena)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/arena?style=social)](https://github.com/yourusername/arena)
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/react-app-base?style=social)](https://github.com/yourusername/react-app-base)
+[![GitHub forks](https://img.shields.io/github/forks/yourusername/react-app-base?style=social)](https://github.com/yourusername/react-app-base)
 
 </div>

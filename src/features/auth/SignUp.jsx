@@ -145,14 +145,14 @@ const SignUp = memo(() => {
   return (
     <div className="flex justify-center items-center min-h-screen p-4 md:p-6 lg:p-8">
       <div className="w-full max-w-md">
-        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-gold-400/20">
-          <h1 className="text-3xl md:text-4xl font-bold text-gold-400 text-center mb-4">
+        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-green-600/20">
+          <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
             Registrazione
           </h1>
-          <p className="text-text-primary/70 text-center mb-8 text-lg">
+          <p className="text-text-secondary text-center mb-8 text-lg">
             Crea il tuo account
           </p>
-                     <p className="text-text-primary/50 text-center mb-6 text-sm">
+                     <p className="text-text-muted text-center mb-6 text-sm">
              Accesso immediato senza conferma email
            </p>
           
@@ -230,7 +230,7 @@ const SignUp = memo(() => {
           </form>
 
           <div className="mt-8 text-center">
-            <p className="text-text-primary/70 mb-4">
+            <p className="text-text-secondary mb-4">
               Hai già un account?
             </p>
             <a 

@@ -21,6 +21,8 @@
 - ✅ **Bundle splitting** - Chunk separati per librerie
 - ✅ **Memoizzazione** - useCallback e useMemo ottimizzati
 - ✅ **Error boundaries** - Gestione errori robusta
+- ✅ **Network monitoring** - Monitoraggio qualità connessione
+- ✅ **Retry logic** - Gestione automatica errori di rete
 
 ### 🎨 Design System
 - ✅ **Tema dark** - Palette colori personalizzabile
@@ -33,6 +35,8 @@
 - **Backend**: Supabase (PostgreSQL + Auth + Storage)
 - **Sicurezza**: Row Level Security + JWT
 - **Testing**: ESLint + Error Boundaries
+- **Deploy**: Vercel (configurazione inclusa)
+- **Gestione File**: Git con .gitattributes per line endings
 
 ## 🚀 Quick Start
 
@@ -56,6 +60,7 @@ yarn install
 # Crea file .env nella root del progetto
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key
+VITE_GOOGLE_CLIENT_ID=your-google-client-id  # Opzionale per OAuth
 ```
 
 ### 4. **Avvia sviluppo**
@@ -106,25 +111,13 @@ react-app-base/
 │   ├── index.css             # Stili globali
 │   └── main.jsx              # Entry point
 ├── script_SQL/              # Schema database
+│   ├── 01-users.sql         # Schema utenti base
+│   └── user_managment_starter.sql  # Gestione utenti avanzata
 ├── public/                   # Asset statici
-└── docs/                     # Documentazione
+├── .gitattributes           # Configurazione Git line endings
+├── .vercelignore            # File esclusi da Vercel
+└── vercel.json              # Configurazione deploy Vercel
 ```
-
-## 🎨 Design System
-
-### **Paletta Colori**
-- `dark-950` - Nero profondo (#0a0a0a)
-- `dark-900` - Nero (#1a1a1a)
-- `green-600` - Verde primario (#16a34a)
-- `green-500` - Verde secondario (#22c55e)
-- `green-400` - Verde hover (#4ade80)
-- `surface-secondary` - Superfici (#2a2a2a)
-- `text-primary` - Testo bianco (#ffffff)
-
-### **Responsive**
-- **Mobile-first** design
-- **Breakpoints**: `sm:`, `md:`, `lg:`, `xl:`
-- **Touch-friendly** per mobile
 
 ## ⚙️ Configurazione
 
@@ -135,28 +128,6 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your-anon-key
 VITE_GOOGLE_CLIENT_ID=your-google-client-id
 ```
 
-### **Database Schema**
-```sql
--- Tabella utenti (vedi script_SQL/01-users.sql)
-CREATE TABLE users (
-  id UUID REFERENCES auth.users PRIMARY KEY,
-  email TEXT UNIQUE NOT NULL,
-  username TEXT UNIQUE,
-  full_name TEXT,
-  avatar_url TEXT,
-  role TEXT DEFAULT 'user',
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-```
-
-## 🧪 Testing
-
-### **Error Boundaries e Validazione**
-- ✅ **Error Boundaries** - Gestione errori React robusta
-- ✅ **Form Validation** - Validazione input e messaggi
-- ✅ **Network Monitoring** - Monitoraggio qualità connessione
-- ✅ **ESLint** - Linting del codice per qualità
-
 ## 🚀 Deploy
 
 ### **Build Produzione**
@@ -164,11 +135,11 @@ CREATE TABLE users (
 pnpm build
 ```
 
-### **Piattaforme Supportate**
-- ✅ **Vercel** - Deploy automatico (configurazione inclusa)
-- ✅ **Netlify** - Drag & drop
-- ✅ **Firebase** - CLI deployment
-- ✅ **GitHub Pages** - Actions workflow
+### **Deploy Automatico su Vercel**
+- ✅ **Configurazione inclusa** - `vercel.json` pronto
+- ✅ **Deploy automatico** - Ogni push su main
+- ✅ **Preview deployments** - Branch separati
+- ✅ **Environment variables** - Configurazione sicura
 
 ## 🛠️ Personalizzazione
 
@@ -193,16 +164,51 @@ pnpm build
    - Aggiorna i meta tag per SEO
    - Personalizza i messaggi e testi
 
+5. **Configura Supabase**:
+   - ⚠️ **NON modificare** `src/features/auth/supabaseClient.js` senza autorizzazione
+   - Usa le variabili ambiente per configurazione
+   - Estendi lo schema database in `script_SQL/`
+
 ## 📄 Licenza
 
 MIT License - vedi [LICENSE](LICENSE) per dettagli
 
 ## 🔗 Link Utili
 
+### **Documentazione Principale**
 - [Supabase Docs](https://supabase.com/docs)
 - [React Docs](https://react.dev)
 - [Vite Docs](https://vitejs.dev)
 - [Tailwind CSS](https://tailwindcss.com)
+
+### **Deploy e Hosting**
+- [Vercel Docs](https://vercel.com/docs)
+- [Vercel CLI](https://vercel.com/cli)
+
+### **Strumenti di Sviluppo**
+- [ESLint](https://eslint.org/)
+- [PostCSS](https://postcss.org/)
+- [Lucide Icons](https://lucide.dev/)
+
+### **Database e Auth**
+- [Supabase Auth](https://supabase.com/docs/guides/auth)
+- [PostgreSQL](https://www.postgresql.org/docs/)
+- [Row Level Security](https://supabase.com/docs/guides/auth/row-level-security)
+
+## 🆕 Novità e Miglioramenti
+
+### **✨ Funzionalità Aggiunte**
+- ✅ **Network Monitoring** - Monitoraggio qualità connessione in tempo reale
+- ✅ **Retry Logic** - Gestione automatica errori di rete con backoff
+- ✅ **Git Configuration** - `.gitattributes` per gestione line endings
+- ✅ **Vercel Integration** - Deploy automatico configurato
+- ✅ **Enhanced Error Handling** - Error boundaries e retry automatici
+
+### **🔧 Miglioramenti Tecnici**
+- ✅ **Bundle Optimization** - Chunk splitting per performance
+- ✅ **Code Quality** - ESLint configurato per qualità codice
+- ✅ **File Management** - Sincronizzazione `.gitignore` e `.vercelignore`
+- ✅ **Security** - Protezione client Supabase e credenziali
 
 ---
 

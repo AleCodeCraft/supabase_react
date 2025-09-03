@@ -3,8 +3,6 @@ node_modules/
 pnpm-lock.yaml
 
 # Testing
-cypress_test/
-*.cy.js
 
 # Documentation and custom features
 funzionalita_Custom/
@@ -154,13 +152,7 @@ temp/
 .local/
 local/
 
-# ===== CYPRESS =====
-cypress_test/videos/
-cypress_test/screenshots/
-cypress_test/downloads/
-cypress_test/fixtures/example.json
-cypress.env.json
-cypress.config.local.js
+
 
 # ===== PERFORMANCE & BUNDLE ANALYSIS =====
 bundle-analyzer-report.html

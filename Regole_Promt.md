@@ -27,6 +27,13 @@
 - **MAI** committare cartelle `node_modules/`
 - **MAI** committare file di build (`dist/`, `build/`)
 
+## 🗄️ SUPABASE CLIENT (CRITICO!)
+- **MAI** modificare il client Supabase (`src/features/auth/supabaseClient.js`) se non esplicitamente richiesto
+- **MAI** toccare la configurazione di connessione a Supabase senza autorizzazione
+- **MAI** modificare le credenziali o l'URL di Supabase
+- Il client Supabase deve rimanere **INVIOLABILE** a meno di richieste specifiche
+- Se necessario modificare Supabase, **CHIEDERE SEMPRE CONFERMA** prima di procedere
+
 ## 🧪 TESTING
 - Mantieni sempre i test funzionanti
 - I file di test devono essere nel `.gitignore` ma **NON** nel `.vercelignore`
@@ -51,6 +58,7 @@
 □ Documentazione è aggiornata
 □ Nessun file di build viene committato
 □ Nessuna credenziale è esposta
+□ Client Supabase NON è stato modificato (a meno di richiesta esplicita)
 ```
 
 ## 🔄 COMANDI UTILI

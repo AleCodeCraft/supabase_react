@@ -32,7 +32,7 @@
 - **Frontend**: React 19 + Vite + Tailwind CSS
 - **Backend**: Supabase (PostgreSQL + Auth + Storage)
 - **Sicurezza**: Row Level Security + JWT
-- **Testing**: Cypress E2E + ESLint
+- **Testing**: ESLint + Error Boundaries
 
 ## 🚀 Quick Start
 
@@ -105,10 +105,6 @@ react-app-base/
 │   ├── App.jsx               # Componente principale
 │   ├── index.css             # Stili globali
 │   └── main.jsx              # Entry point
-├── cypress_test/             # Test E2E Cypress
-│   ├── e2e/                  # Test end-to-end
-│   ├── support/              # File di supporto
-│   └── fixtures/             # Dati di test
 ├── script_SQL/              # Schema database
 ├── public/                   # Asset statici
 └── docs/                     # Documentazione
@@ -155,25 +151,11 @@ CREATE TABLE users (
 
 ## 🧪 Testing
 
-### **Test E2E con Cypress**
-```bash
-# Avvia Cypress UI
-pnpm cypress:open
-
-# Esegui test in headless
-pnpm cypress:run
-
-# Test specifici
-npx cypress run --spec "cypress_test/e2e/auth.cy.js"
-```
-
-### **Test Disponibili**
-- ✅ **Authentication** - Login, registrazione, validazione
-- ✅ **Responsive Design** - Mobile, tablet, desktop
-- ✅ **Error Handling** - Gestione errori e stati
+### **Error Boundaries e Validazione**
+- ✅ **Error Boundaries** - Gestione errori React robusta
 - ✅ **Form Validation** - Validazione input e messaggi
-
-> 📖 Vedi [cypress_test/README.md](cypress_test/README.md) per dettagli completi
+- ✅ **Network Monitoring** - Monitoraggio qualità connessione
+- ✅ **ESLint** - Linting del codice per qualità
 
 ## 🚀 Deploy
 

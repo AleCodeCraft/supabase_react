@@ -67,7 +67,7 @@ npm run dev
 yarn dev
 ```
 
-> 🌐 App disponibile su `http://localhost:5173`
+> 🌐 App disponibile su `https://supabase-react-pi.vercel.app`
 
 ## 📁 Struttura Progetto
 

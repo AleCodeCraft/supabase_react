@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState, useCallback, useRef } from 'react'
-import { checkApiHealth, monitorNetworkQuality } from '../../utils/networkUtils'
+import { checkApiHealth, monitorNetworkQuality } from '../utils/networkUtils'
 
 const HealthMonitor = memo(() => {
   const [networkStatus, setNetworkStatus] = useState({
@@ -82,7 +82,7 @@ const HealthMonitor = memo(() => {
   }, [checkHealth, networkStatus.isOnline])
 
   const getStatusColor = (isHealthy) => {
-    return isHealthy ? 'text-green-400' : 'text-red-400'
+    return isHealthy ? 'text-gold-600' : 'text-red-400'
   }
 
   const getStatusIcon = (isHealthy) => {
@@ -95,7 +95,7 @@ const HealthMonitor = memo(() => {
         <button
           onClick={() => setShowDetails(true)}
           className={`p-2 rounded-full bg-dark-900 border-2 ${
-            networkStatus.isOnline ? 'border-green-400' : 'border-red-400'
+            networkStatus.isOnline ? 'border-gold-600' : 'border-red-400'
           } text-white hover:bg-dark-800 transition-colors`}
           title="Stato connessione"
         >
@@ -109,9 +109,9 @@ const HealthMonitor = memo(() => {
 
   return (
     <div id="health-monitor" className="fixed bottom-4 right-4 z-50">
-      <div className="bg-dark-900 border border-green-600/20 rounded-lg p-4 shadow-2xl max-w-xs">
+      <div className="bg-dark-900 border border-gold-600/20 rounded-lg p-4 shadow-2xl max-w-xs">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-semibold text-green-400">Stato Sistema</h3>
+          <h3 className="text-sm font-semibold text-gold-600">Stato Sistema</h3>
           <button
             onClick={() => setShowDetails(false)}
             className="text-text-primary/50 hover:text-text-primary"
@@ -147,7 +147,7 @@ const HealthMonitor = memo(() => {
         
         <button
           onClick={checkHealth}
-          className="w-full mt-3 px-3 py-2 bg-green-600 hover:bg-green-500 text-white text-xs font-medium rounded transition-colors"
+          className="w-full mt-3 px-3 py-2 bg-gold-600 hover:bg-gold-600/80 text-white text-xs font-medium rounded transition-colors"
         >
           Ricontrolla
         </button>

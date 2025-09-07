@@ -1,10 +1,108 @@
-# Regole Prompt per Arena Project
+# Regole Prompt per React + Supabase Template
 
 ## 🚀 REGOLE GENERALI
 - **SEMPRE** rispondi in italiano
 - Usa emoji per rendere le risposte più chiare e piacevoli
 - Sii preciso e dettagliato nelle spiegazioni
 - Fornisci esempi pratici quando possibile
+
+## 🎨 PALETTE COLORI - TEMA SCURO E ORO
+### Palette Principale
+- **Nero Profondo**: `#0a0a0a` (dark-950)
+- **Nero**: `#1a1a1a` (dark-900) 
+- **Grigio Scuro**: `#2a2a2a` (dark-800)
+- **Grigio Medio**: `#3a3a3a` (dark-700)
+
+### Palette Oro
+- **Oro Scuro Unico**: `#8b6914` (gold-600/500/400/300/200) - Colore unico per tutto il progetto
+
+### Superfici
+- **Primaria**: `#1a1a1a` (surface-primary)
+- **Secondaria**: `#2a2a2a` (surface-secondary)
+- **Terziaria**: `#3a3a3a` (surface-tertiary)
+
+### Testi
+- **Primario**: `#ffffff` (text-primary) - Testo principale
+- **Secondario**: `#e5e5e5` (text-secondary) - Testo secondario
+- **Muted**: `#a3a3a3` (text-muted) - Testo attenuato
+
+### Accent
+- **Primario**: `#8b6914` (accent-primary) - Oro scuro unico
+- **Secondario**: `#8b6914` (accent-secondary) - Oro scuro unico
+
+### Regole di Utilizzo
+- **SEMPRE** usa il tema scuro come base
+- **SEMPRE** usa i colori oro per elementi interattivi e accent
+- **MAI** usare colori verde (sostituiti con oro)
+- **SEMPRE** mantieni il contrasto per accessibilità
+
+## 📁 STRUTTURA CARTELLE DEL PROGETTO (OBBLIGATORIO!)
+### Organizzazione File e Cartelle
+**SEGUI SEMPRE questa struttura quando crei/modifichi file:**
+
+```
+src/
+├── components/          # Componenti riutilizzabili
+│   ├── Button.jsx
+│   ├── Input.jsx
+│   ├── Layout.jsx
+│   ├── ProtectedLayout.jsx
+│   ├── PublicLayout.jsx
+│   ├── ProtectedRoute.jsx
+│   ├── InstallBanner.jsx
+│   └── HealthMonitor.jsx
+├── hooks/              # Custom hooks
+│   ├── useAuth.js
+│   ├── usePWAInstall.js
+│   └── useNetworkOperation.js
+├── pages/              # Pagine dell'applicazione
+│   ├── auth/           # Pagine di autenticazione
+│   │   ├── Login.jsx
+│   │   ├── SignUp.jsx
+│   │   ├── ForgotPassword.jsx
+│   │   ├── ResetPassword.jsx
+│   │   └── supabaseClient.js
+│   ├── Home.jsx        # Pagina principale
+│   ├── NotFound.jsx    # Pagina 404
+│   ├── Header.jsx      # Componente header
+│   └── Footer.jsx      # Componente footer
+├── utils/              # Utility e helper
+│   ├── ErrorBoundary.jsx
+│   ├── errorHandler.js
+│   ├── networkUtils.js
+│   ├── retryUtils.js
+│   ├── storage.js
+│   ├── validationUtils.js
+│   └── OptimizedImage.jsx
+├── App.jsx             # Componente principale
+├── main.jsx            # Entry point
+└── index.css           # Stili globali
+```
+
+### Regole per la Struttura
+- **SEMPRE** crea nuovi componenti in `src/components/`
+- **SEMPRE** crea nuove pagine in `src/pages/`
+- **SEMPRE** crea nuovi hooks in `src/hooks/`
+- **SEMPRE** crea nuove utility in `src/utils/`
+- **SEMPRE** usa import relativi corretti per la struttura
+- **MAI** creare file fuori da questa struttura senza motivo
+
+### Pattern di Import Corretti
+```javascript
+// Da src/pages/Home.jsx
+import { useAuth } from '../hooks/useAuth'
+import { Button } from '../components/Button'
+
+// Da src/pages/auth/Login.jsx
+import { useAuth } from '../../hooks/useAuth'
+import { Button } from '../../components/Button'
+
+// Da src/components/Button.jsx
+import { validateEmail } from '../utils/validationUtils'
+
+// Da src/hooks/useAuth.js
+import { supabase } from '../pages/auth/supabaseClient'
+```
 
 ## 📁 GESTIONE FILE DI ESCLUSIONE (CRITICO!)
 ### Sincronizzazione Automatica .gitignore ↔ .vercelignore
@@ -20,6 +118,7 @@
 3. ✅ Verifica che le cartelle pesanti (node_modules, dist, etc.) siano escluse
 4. ✅ Controlla che i file di test e documentazione siano esclusi dal deploy
 5. ✅ Assicurati che i file di configurazione locale siano protetti
+6. ✅ Verifica che le specifiche tecniche siano aggiornate nei file di ruolo
 
 ## 🔒 SICUREZZA
 - **MAI** committare file con password, API key o credenziali
@@ -44,6 +143,13 @@
 - Documenta tutte le modifiche importanti
 - Aggiorna la documentazione quando si aggiungono nuove funzionalità
 
+### 📋 SPECIFICHE PROGETTO (CRITICO!)
+- **SEMPRE** consulta i file nella cartella `Specifiche tecniche/` per le specifiche del progetto
+- **NON** utilizzare più il file `Specifiche_tecniche.md` come riferimento principale
+
+- Il file `Specifiche_tecniche.md` serve solo come **indice generale** con link ai file specifici
+- **SEMPRE** verifica che le implementazioni rispettino le specifiche dettagliate nei file di ruolo
+
 ## 🚀 DEPLOY
 - Verifica sempre che il `.vercelignore` sia corretto prima del deploy
 - Controlla che non ci siano file inutili che rallentano il build
@@ -56,6 +162,7 @@
 □ Cartelle pesanti sono escluse
 □ Test funzionano localmente
 □ Documentazione è aggiornata
+□ Specifiche tecniche sono aggiornate nei file di ruolo
 □ Nessun file di build viene committato
 □ Nessuna credenziale è esposta
 □ Client Supabase NON è stato modificato (a meno di richiesta esplicita)

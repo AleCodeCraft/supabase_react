@@ -1,12 +1,13 @@
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../shared/hooks/useAuth'
-import { Button } from '../../shared/components/Button'
+import { useAuth } from '../hooks/useAuth'
+import { Button } from '../components/Button'
 import { memo, useCallback } from 'react'
 
 // ✅ CORRETTO - Componente FeatureCard memoizzato per evitare re-render
 const FeatureCard = memo(({ title, description }) => (
-  <div className="bg-surface-secondary rounded-2xl p-8 border border-green-600/30 hover:border-green-500/60 hover:bg-surface-tertiary transition-all duration-300 group">
-    <h3 className="text-xl font-semibold text-green-400 mb-3 group-hover:text-green-300 transition-colors">{title}</h3>
+  <div className="bg-surface-secondary rounded-2xl p-8 border border-gold-600/30 hover:border-gold-600/60 hover:bg-surface-tertiary transition-all duration-300 group">
+    <h3 className="text-xl font-semibold text-gold-600 mb-3 group-hover:text-gold-600 transition-colors">{title}</h3>
     <p className="text-text-secondary group-hover:text-text-primary transition-colors">{description}</p>
   </div>
 ))
@@ -49,31 +50,9 @@ const Home = memo(() => {
   ]
 
   return (
-    <div className="min-h-screen bg-dark-950 text-text-primary">
-      {/* Header */}
-      <header className="bg-surface-secondary border-b border-green-600/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <h1 className="text-2xl md:text-3xl font-bold text-green-400">
-              React App Base
-            </h1>
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="secondary"
-                size="sm"
-                onClick={handleLogout}
-              >
-                Logout
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-green-400 mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-gold-400 mb-6">
             Benvenuto nella tua App!
           </h2>
           <p className="text-xl md:text-2xl text-text-secondary mb-12 max-w-3xl mx-auto">
@@ -103,7 +82,6 @@ const Home = memo(() => {
             </Button>
           </div>
         </div>
-      </main>
     </div>
   )
 })

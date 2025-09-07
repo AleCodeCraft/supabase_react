@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
-import { createRetryableOperation, withTimeout } from '../../utils/retryUtils'
-import { checkNetworkStatus } from '../../utils/networkUtils'
-import { AppError, errorCodes, handleApiError } from '../../utils/errorHandler'
+import { createRetryableOperation, withTimeout } from '../utils/retryUtils'
+import { checkNetworkStatus } from '../utils/networkUtils'
+import { AppError, errorCodes, handleApiError } from '../utils/errorHandler'
 
 export const useNetworkOperation = (operation, options = {}) => {
   const {

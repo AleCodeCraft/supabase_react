@@ -76,7 +76,7 @@ pids
 .yarn-integrity
 package-lock.json
 yarn.lock
-pnpm-lock.yaml
+# NOTA: pnpm-lock.yaml è incluso nel repository per consistenza
 
 # ===== EDITOR =====
 .vscode/*
@@ -134,8 +134,6 @@ temp/
 .local/
 local/
 
-
-
 # ===== PERFORMANCE & BUNDLE ANALYSIS =====
 bundle-analyzer-report.html
 webpack-bundle-analyzer-report.html
@@ -159,3 +157,33 @@ webpack-bundle-analyzer-report.html
 # ===== LOCK FILES (mantieni solo pnpm-lock.yaml) =====
 package-lock.json
 yarn.lock
+# NOTA: pnpm-lock.yaml è incluso nel repository per consistenza
+
+# ===== DOCUMENTAZIONE E SPECIFICHE =====
+# NOTA: I file di specifiche tecniche sono inclusi nel repository
+# Solo i file di documentazione temporanea sono esclusi
+*.md.tmp
+*.md.bak
+
+# ===== CURSOR IDE =====
+.cursor/
+.cursorignore
+
+# ===== ARENA STILENUOVO SPECIFICO =====
+# File di configurazione locale
+.env.local
+.env.development.local
+.env.production.local
+
+# File di backup del database
+*.sql.backup
+*.sql.bak
+
+# File di test temporanei
+test-*.js
+test-*.jsx
+*.test.tmp
+
+# File di build specifici
+arena-build/
+staging/

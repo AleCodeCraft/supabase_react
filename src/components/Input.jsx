@@ -1,5 +1,5 @@
 import React, { memo, useState, useCallback, useMemo, useRef } from 'react'
-import { validateEmail, validatePassword, validateFullName } from '../../utils/validationUtils'
+import { validateEmail, validatePassword, validateFullName } from '../utils/validationUtils'
 
 export const Input = memo(({ 
   type = 'text', 
@@ -42,7 +42,7 @@ export const Input = memo(({
     if (error) return "border-red-500" // Priorità agli errori esterni
     if (getValidationResult && !getValidationResult.isValid && getValidationResult.error) return "border-red-500"
     if (getValidationResult && getValidationResult.suggestions && getValidationResult.suggestions.length > 0) return "border-yellow-500"
-    if (isFocused) return "border-green-400"
+    if (isFocused) return "border-gold-600"
     return "border-surface-tertiary"
   }, [disabled, error, getValidationResult, isFocused])
   

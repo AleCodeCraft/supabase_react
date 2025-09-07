@@ -26,7 +26,7 @@ class ErrorBoundary extends React.Component {
       return (
         <div className="min-h-screen bg-dark-950 text-text-primary flex flex-col items-center justify-center p-4 md:p-6 lg:p-8">
           <div className="text-center max-w-2xl mx-auto space-y-6">
-            <h1 className="text-3xl md:text-4xl font-bold text-gold-400">
+            <h1 className="text-3xl md:text-4xl font-bold text-gold-600">
               Qualcosa è andato storto
             </h1>
             
@@ -43,14 +43,14 @@ class ErrorBoundary extends React.Component {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => window.location.reload()}
-                className="px-8 py-4 bg-gold-400 hover:bg-gold-300 text-dark-950 font-semibold rounded-2xl transition-all duration-300"
+                className="px-8 py-4 bg-gold-600 hover:bg-gold-600/80 text-white font-semibold rounded-2xl transition-all duration-300"
               >
                 Ricarica Pagina
               </button>
               
               <button
                 onClick={() => this.setState({ hasError: false, error: null, errorId: null })}
-                className="px-8 py-4 bg-dark-900 hover:bg-dark-800 text-text-primary font-semibold rounded-2xl border border-gold-400/20 transition-all duration-300"
+                className="px-8 py-4 bg-dark-900 hover:bg-dark-800 text-text-primary font-semibold rounded-2xl border border-gold-600/20 transition-all duration-300"
               >
                 Riprova
               </button>

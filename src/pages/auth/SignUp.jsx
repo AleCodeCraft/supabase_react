@@ -1,14 +1,16 @@
-import { useState, memo, useCallback, useMemo, useEffect } from 'react'
+import React, { useState, memo, useCallback, useMemo, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
 import { supabase } from './supabaseClient'
-import { Button } from '../../shared/components/Button'
-import { Input } from '../../shared/components/Input'
+import { Button } from '../../components/Button'
+import { Input } from '../../components/Input'
 import { validateForm, validateEmail, validatePassword, validateFullName } from '../../utils/validationUtils'
 import { createRetryableOperation } from '../../utils/retryUtils'
 import { AppError, errorCodes } from '../../utils/errorHandler'
 
 const SignUp = memo(() => {
   const navigate = useNavigate()
+  const { session } = useAuth()
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -17,6 +19,13 @@ const SignUp = memo(() => {
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState({})
   const [cooldownTime, setCooldownTime] = useState(0)
+
+  // ✅ CORRETTO - Reindirizzamento automatico quando la sessione è attiva
+  useEffect(() => {
+    if (session) {
+      navigate('/', { replace: true })
+    }
+  }, [session, navigate])
 
   // Validatori per il form
   const validators = useMemo(() => ({
@@ -145,7 +154,7 @@ const SignUp = memo(() => {
   return (
     <div className="flex justify-center items-center min-h-screen p-4 md:p-6 lg:p-8">
       <div className="w-full max-w-md">
-        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-green-600/20">
+        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-gold-600/20">
           <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
             Registrazione
           </h1>
@@ -162,7 +171,7 @@ const SignUp = memo(() => {
                  ? 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/20' 
                  : message.includes('Errore') || message.includes('già registrata') || message.includes('non valido')
                  ? 'bg-red-500/10 text-red-400 border border-red-500/20' 
-                 : 'bg-green-500/10 text-green-400 border border-green-400/20'
+                 : 'bg-gold-600/10 text-gold-600 border border-gold-600/20'
              }`}>
                {message}
              </div>

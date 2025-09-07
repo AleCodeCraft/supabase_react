@@ -14,10 +14,22 @@ export default defineConfig({
           router: ['react-router-dom']
         }
       }
-    }
+    },
+    cssCodeSplit: false,
+    sourcemap: false,
+    assetsDir: 'assets'
   },
   server: {
     hmr: { overlay: false }
-  
-  }
+  },
+  define: {
+    global: 'globalThis',
+  },
+  esbuild: {
+    jsx: 'automatic'
+  },
+  css: {
+    postcss: './postcss.config.js'
+  },
+  base: '/'
 })

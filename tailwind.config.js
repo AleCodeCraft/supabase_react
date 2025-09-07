@@ -7,17 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Paletta Supabase - tema scuro con verde
+        // Paletta tema scuro e oro
         'dark': {
           950: '#0a0a0a', // nero profondo
           900: '#1a1a1a', // nero
           800: '#2a2a2a', // grigio scuro
+          700: '#3a3a3a', // grigio medio
         },
-        'green': {
-          600: '#16a34a', // verde scuro primario
-          500: '#22c55e', // verde scuro più chiaro
-          400: '#4ade80', // verde hover
-          300: '#6ee7b7', // verde light
+        'gold': {
+          600: '#8b6914', // oro scuro unico
+          500: '#8b6914', // oro scuro unico
+          400: '#8b6914', // oro scuro unico
+          300: '#8b6914', // oro scuro unico
+          200: '#8b6914', // oro scuro unico
         },
         'surface': {
           'primary': '#1a1a1a',   // superficie principale
@@ -30,8 +32,8 @@ export default {
           'muted': '#a3a3a3',     // testo grigio
         },
         'accent': {
-          'primary': '#16a34a',   // verde scuro primario
-          'secondary': '#22c55e', // verde scuro secondario
+          'primary': '#8b6914',   // oro scuro unico primario
+          'secondary': '#8b6914', // oro scuro unico secondario
         }
       },
     },

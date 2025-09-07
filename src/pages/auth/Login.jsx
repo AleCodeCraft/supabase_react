@@ -1,14 +1,24 @@
-import { useState, memo, useCallback } from 'react'
-import { useAuth } from '../../shared/hooks/useAuth'
-import { Button } from '../../shared/components/Button'
-import { Input } from '../../shared/components/Input'
+import React, { useState, memo, useCallback, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
+import { Button } from '../../components/Button'
+import { Input } from '../../components/Input'
 
 // ✅ CORRETTO - Componente Login memoizzato per evitare re-render
 const Login = memo(() => {
-  const { login, loginWithGoogle, loading } = useAuth()
+  const { login, loginWithGoogle, loading, session } = useAuth()
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
+
+  // ✅ CORRETTO - Reindirizzamento automatico quando la sessione è attiva
+  useEffect(() => {
+    if (session) {
+      console.log('Login: Sessione attiva, reindirizzamento a /')
+      navigate('/', { replace: true })
+    }
+  }, [session, navigate])
 
   // ✅ CORRETTO - Callback memoizzati per evitare re-render
   const handleLogin = useCallback(async (event) => {
@@ -37,7 +47,7 @@ const Login = memo(() => {
   return (
     <div className="flex justify-center items-center min-h-screen p-4 md:p-6 lg:p-8">
       <div className="w-full max-w-md">
-        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-green-600/20">
+        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-gold-600/20">
           <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
             Benvenuto
           </h1>
@@ -49,7 +59,7 @@ const Login = memo(() => {
             <div className={`p-4 rounded-2xl mb-6 text-sm ${
               message.includes('Errore') 
                 ? 'bg-red-500/10 text-red-400 border border-red-500/20' 
-                : 'bg-green-500/10 text-green-400 border border-green-500/20'
+                : 'bg-gold-600/10 text-gold-600 border border-gold-600/20'
             }`}>
               {message}
             </div>
@@ -127,7 +137,7 @@ const Login = memo(() => {
             <div className="mt-4">
               <a 
                 href="/forgot-password"
-                className="text-green-400 hover:text-green-300 text-sm underline underline-offset-2 transition-colors"
+                className="text-gold-600 hover:text-gold-600/80 text-sm underline underline-offset-2 transition-colors"
               >
                 Ho dimenticato la password
               </a>

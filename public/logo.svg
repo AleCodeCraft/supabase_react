@@ -1,0 +1,17 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background with rounded corners -->
+  <rect width="120" height="120" rx="20" ry="20" fill="#ffffff"/>
+  
+  <!-- Outer hexagon (nero) - perfectly centered -->
+  <polygon points="60,16 100,36 100,82 60,102 20,82 20,34" fill="#000000"/>
+  
+  <!-- Inner hexagon (oro scuro) - perfectly centered -->
+  <polygon points="60,26 90,41 90,77 60,92 30,77 30,41" fill="#8b6914"/>
+  
+  <!-- White accent in gold hexagon -->
+  <polygon points="60,34 80,44 80,74 60,84 40,74 40,44" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Central "A" letter (nero) - perfectly centered -->
+  <text x="60" y="62" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#000000" text-anchor="middle" dominant-baseline="middle">A</text>
+  
+</svg>

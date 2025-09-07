@@ -1,0 +1,78 @@
+{
+  "name": "Arena Stile Nuovo",
+  "short_name": "Arena",
+  "description": "Sistema di sfide competitive con classifiche in tempo reale",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#b8860b",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "it",
+  "dir": "ltr",
+  "categories": ["sports", "fitness", "entertainment"],
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Arena Stile Nuovo - Desktop View"
+    },
+    {
+      "src": "/screenshots/mobile-screenshot.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Arena Stile Nuovo - Mobile View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Sfide Disponibili",
+      "short_name": "Sfide",
+      "description": "Visualizza le sfide disponibili",
+      "url": "/challenges",
+      "icons": [
+        {
+          "src": "/logo.svg",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Classifiche",
+      "short_name": "Ranking",
+      "description": "Visualizza le classifiche",
+      "url": "/leaderboard",
+      "icons": [
+        {
+          "src": "/logo.svg",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}

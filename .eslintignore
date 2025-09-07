@@ -1,0 +1,44 @@
+# ===== ESLINT IGNORE =====
+# File e cartelle da ignorare per ESLint
+
+# ===== BUILD OUTPUTS =====
+dist/
+dist-ssr/
+build/
+.next/
+.nuxt/
+.vite/
+
+# ===== DEPENDENCIES =====
+node_modules/
+
+# ===== CONFIGURAZIONE =====
+*.config.js
+*.config.ts
+vite.config.js
+tailwind.config.js
+postcss.config.js
+eslint.config.js
+
+# ===== PUBLIC =====
+public/
+index.html
+
+# ===== DOCUMENTAZIONE =====
+*.md
+README.md
+Regole_Promt.md
+How to Supabase+Google.md
+Supabase_Examples.md
+
+# ===== SPECIFICHE =====
+Specifiche tecniche/
+script_SQL/
+
+# ===== FILE DI CONFIGURAZIONE =====
+package.json
+pnpm-lock.yaml
+vercel.json
+
+# ===== FILE DI SICUREZZA =====
+google_client_secret.json

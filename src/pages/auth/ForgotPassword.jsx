@@ -1,7 +1,7 @@
-import { useState, memo, useCallback } from 'react'
+import React, { useState, memo, useCallback } from 'react'
 import { supabase } from './supabaseClient'
-import { Button } from '../../shared/components/Button'
-import { Input } from '../../shared/components/Input'
+import { Button } from '../../components/Button'
+import { Input } from '../../components/Input'
 import { validateEmail } from '../../utils/validationUtils'
 import { createRetryableOperation } from '../../utils/retryUtils'
 import { AppError, errorCodes } from '../../utils/errorHandler'
@@ -73,15 +73,15 @@ const ForgotPassword = memo(() => {
     return (
       <div className="flex justify-center items-center min-h-screen p-4 md:p-6 lg:p-8">
         <div className="w-full max-w-md">
-          <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-gold-400/20">
+          <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-gold-600/20">
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-gold-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               
-              <h1 className="text-3xl md:text-4xl font-bold text-gold-400 mb-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-gold-600 mb-4">
                 Email Inviata!
               </h1>
               
@@ -89,7 +89,7 @@ const ForgotPassword = memo(() => {
                 Abbiamo inviato un link per il reset della password a:
               </p>
               
-              <p className="text-gold-400 font-medium mb-8 break-all">
+              <p className="text-gold-600 font-medium mb-8 break-all">
                 {email}
               </p>
               
@@ -116,8 +116,8 @@ const ForgotPassword = memo(() => {
   return (
     <div className="flex justify-center items-center min-h-screen p-4 md:p-6 lg:p-8">
       <div className="w-full max-w-md">
-        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-gold-400/20">
-          <h1 className="text-3xl md:text-4xl font-bold text-gold-400 text-center mb-4">
+        <div className="bg-surface-secondary rounded-3xl p-8 md:p-12 shadow-2xl border border-gold-600/20">
+          <h1 className="text-3xl md:text-4xl font-bold text-gold-600 text-center mb-4">
             Reset Password
           </h1>
           <p className="text-text-primary/70 text-center mb-8 text-lg">
@@ -128,7 +128,7 @@ const ForgotPassword = memo(() => {
             <div className={`p-4 rounded-2xl mb-6 text-sm ${
               message.includes('Errore') 
                 ? 'bg-red-500/10 text-red-400 border border-red-500/20' 
-                : 'bg-green-500/10 text-green-400 border border-green-400/20'
+                 : 'bg-gold-600/10 text-gold-600 border border-gold-600/20'
             }`}>
               {message}
             </div>

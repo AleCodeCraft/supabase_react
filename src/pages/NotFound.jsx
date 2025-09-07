@@ -1,5 +1,6 @@
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button } from '../../shared/components/Button'
+import { Button } from '../components/Button'
 import { memo, useCallback } from 'react'
 
 // ✅ CORRETTO - Componente NotFound memoizzato per evitare re-render
@@ -18,11 +19,11 @@ const NotFound = memo(() => {
   return (
     <div className="min-h-screen bg-dark-950 text-text-primary flex items-center justify-center p-4 md:p-6 lg:p-8">
       <div className="text-center max-w-2xl mx-auto">
-        <div className="text-8xl md:text-9xl font-bold text-gold-400 mb-6">
+        <div className="text-8xl md:text-9xl font-bold text-gold-600 mb-6">
           404
         </div>
         
-        <h1 className="text-3xl md:text-4xl font-bold text-gold-400 mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-gold-600 mb-4">
           Pagina Non Trovata
         </h1>
         

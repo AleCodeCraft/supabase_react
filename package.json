@@ -1,9 +1,9 @@
 {
-  "name": "react-app-base",
+  "name": "react-supabase-template",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Template base React con autenticazione Supabase, React 19, Vite e Tailwind CSS",
+  "description": "Template base React con autenticazione Supabase, Google OAuth e gestione profili utente",
   "keywords": [
     "react",
     "supabase",

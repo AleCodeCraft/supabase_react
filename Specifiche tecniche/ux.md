@@ -15,9 +15,9 @@
 ## 🎨 Design System
 
 ### **Colori**
-- **Primario**: Oro scuro classico (#b8860b)
-- **Secondario**: Oro scuro brillante (#daa520)
-- **Accent**: Oro scuro chiaro (#cd853f)
+- **Primario**: Celeste scuro (#0ea5e9)
+- **Secondario**: Celeste chiaro (#38bdf8)
+- **Accent**: Celeste brillante (#7dd3fc)
 - **Neutri**: Nero profondo (#0a0a0a), Bianco (#FFFFFF)
 
 ### **Tipografia**
@@ -70,11 +70,6 @@
 - **Caricamento iniziale**: < 3 secondi
 - **Navigazione**: < 1 secondo
 - **Invio risultati**: Feedback immediato
-
-### **Offline**
-- **Cache**: Sfide e profilo utente
-- **Sync**: Sincronizzazione automatica quando online
-- **Indicatori**: Stato connessione visibile
 
 ## 📊 Metriche UX
 

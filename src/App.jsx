@@ -17,7 +17,18 @@ const SignUp = lazy(() => import('./pages/auth/SignUp'))
 const ForgotPassword = lazy(() => import('./pages/auth/ForgotPassword'))
 const ResetPassword = lazy(() => import('./pages/auth/ResetPassword'))
 const Home = lazy(() => import('./pages/Home'))
+const Profile = lazy(() => import('./pages/Profile'))
 const NotFound = lazy(() => import('./pages/NotFound'))
+
+// Pagine del menu hamburger
+const SfideCorrenti = lazy(() => import('./pages/SfideCorrenti'))
+const ClassificaGenerale = lazy(() => import('./pages/ClassificaGenerale'))
+const SfideApprovazione = lazy(() => import('./pages/SfideApprovazione'))
+const Gamification = lazy(() => import('./pages/Gamification'))
+const StatoApplicazione = lazy(() => import('./pages/StatoApplicazione'))
+
+// Pagine pubbliche per footer
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 
 // Loading component con spaziature perfette
 const LoadingSpinner = () => (
@@ -61,6 +72,12 @@ function App() {
               element={<PublicLayout><ResetPassword /></PublicLayout>} 
             />
             
+            {/* Pagine pubbliche per footer */}
+            <Route 
+              path="/privacy-policy" 
+              element={<PublicLayout><PrivacyPolicy /></PublicLayout>} 
+            />
+            
             {/* Route protette */}
             <Route 
               path="/" 
@@ -80,6 +97,70 @@ function App() {
                 <ProtectedRoute>
                   <ProtectedLayout>
                     <Home />
+                  </ProtectedLayout>
+                </ProtectedRoute>
+              } 
+            />
+            
+            {/* Route profilo utente */}
+            <Route 
+              path="/profile" 
+              element={
+                <ProtectedRoute>
+                  <ProtectedLayout>
+                    <Profile />
+                  </ProtectedLayout>
+                </ProtectedRoute>
+              } 
+            />
+            
+            {/* Route menu hamburger */}
+            <Route 
+              path="/sfide-correnti" 
+              element={
+                <ProtectedRoute>
+                  <ProtectedLayout>
+                    <SfideCorrenti />
+                  </ProtectedLayout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/classifica" 
+              element={
+                <ProtectedRoute>
+                  <ProtectedLayout>
+                    <ClassificaGenerale />
+                  </ProtectedLayout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/sfide-approvazione" 
+              element={
+                <ProtectedRoute>
+                  <ProtectedLayout>
+                    <SfideApprovazione />
+                  </ProtectedLayout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/gamification" 
+              element={
+                <ProtectedRoute>
+                  <ProtectedLayout>
+                    <Gamification />
+                  </ProtectedLayout>
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/stato-app" 
+              element={
+                <ProtectedRoute>
+                  <ProtectedLayout>
+                    <StatoApplicazione />
                   </ProtectedLayout>
                 </ProtectedRoute>
               } 

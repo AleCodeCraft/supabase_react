@@ -7,19 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Paletta tema scuro e oro
+        // Paletta tema scuro e celeste
         'dark': {
           950: '#0a0a0a', // nero profondo
           900: '#1a1a1a', // nero
           800: '#2a2a2a', // grigio scuro
           700: '#3a3a3a', // grigio medio
         },
-        'gold': {
-          600: '#8b6914', // oro scuro unico
-          500: '#8b6914', // oro scuro unico
-          400: '#8b6914', // oro scuro unico
-          300: '#8b6914', // oro scuro unico
-          200: '#8b6914', // oro scuro unico
+        'sky': {
+          500: '#0ea5e9', // celeste scuro principale
+          400: '#38bdf8', // celeste chiaro
+          300: '#7dd3fc', // celeste brillante
+          200: '#bae6fd', // celeste tenue
         },
         'surface': {
           'primary': '#1a1a1a',   // superficie principale
@@ -32,8 +31,10 @@ export default {
           'muted': '#a3a3a3',     // testo grigio
         },
         'accent': {
-          'primary': '#8b6914',   // oro scuro unico primario
-          'secondary': '#8b6914', // oro scuro unico secondario
+          'primary': '#0ea5e9',   // celeste scuro primario
+          'secondary': '#38bdf8', // celeste chiaro secondario
+          'hover': '#7dd3fc',     // celeste brillante hover
+          'bg': '#bae6fd',        // celeste tenue background
         }
       },
     },

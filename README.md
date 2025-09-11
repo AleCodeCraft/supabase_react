@@ -11,7 +11,7 @@
 
 ---
 
-**🎯 Template pulito e moderno per iniziare rapidamente con React, Supabase, Vite e Tailwind CSS. Include autenticazione completa e struttura base per nuove applicazioni.**
+**🎯 Template pulito e moderno per iniziare rapidamente con React, Supabase, Vite e Tailwind CSS. Include autenticazione completa con Google OAuth e gestione profili utente. Design elegante con tema scuro e accenti celesti.**
 
 </div>
 

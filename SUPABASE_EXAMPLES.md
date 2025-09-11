@@ -1,6 +1,6 @@
 # SUPABASE CLIENT - ESEMPI DI UTILIZZO
 
-Questo file contiene esempi delle chiamate più comuni a Supabase per riferimento. Utilizza questi esempi come base per implementare le funzionalità del tuo progetto.
+Questo file contiene esempi delle chiamate più comuni a Supabase per riferimento.
 
 ## 1. AUTENTICAZIONE (AUTH)
 

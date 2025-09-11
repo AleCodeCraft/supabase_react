@@ -64,10 +64,16 @@ export const useAuth = () => {
   const loginWithGoogle = useCallback(async () => {
     try {
       setLoading(true)
+      
+      // Determina l'URL di redirect basato sull'ambiente
+      const redirectUrl = import.meta.env.PROD 
+        ? 'https://arenastilenuovo.vercel.app/' 
+        : 'http://localhost:5173/'
+      
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/`
+          redirectTo: redirectUrl
         }
       })
       

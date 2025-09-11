@@ -20,7 +20,7 @@ const ProtectedLayout = memo(({ children }) => {
   }, [logout, navigate])
 
   return (
-    <Layout onLogout={handleLogout}>
+    <Layout>
       {children}
     </Layout>
   )

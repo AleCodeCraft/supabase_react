@@ -6,15 +6,18 @@
 - Sii preciso e dettagliato nelle spiegazioni
 - Fornisci esempi pratici quando possibile
 
-## 🎨 PALETTE COLORI - TEMA SCURO E ORO
+## 🎨 PALETTE COLORI - TEMA SCURO E CELESTE
 ### Palette Principale
 - **Nero Profondo**: `#0a0a0a` (dark-950)
 - **Nero**: `#1a1a1a` (dark-900) 
 - **Grigio Scuro**: `#2a2a2a` (dark-800)
 - **Grigio Medio**: `#3a3a3a` (dark-700)
 
-### Palette Oro
-- **Oro Scuro Unico**: `#8b6914` (gold-600/500/400/300/200) - Colore unico per tutto il progetto
+### Palette Celeste
+- **Celeste Scuro**: `#0ea5e9` (sky-500) - Colore principale per accent
+- **Celeste Chiaro**: `#38bdf8` (sky-400) - Colore secondario
+- **Celeste Brillante**: `#7dd3fc` (sky-300) - Colore per hover/active
+- **Celeste Tenue**: `#bae6fd` (sky-200) - Colore per background
 
 ### Superfici
 - **Primaria**: `#1a1a1a` (surface-primary)
@@ -27,13 +30,15 @@
 - **Muted**: `#a3a3a3` (text-muted) - Testo attenuato
 
 ### Accent
-- **Primario**: `#8b6914` (accent-primary) - Oro scuro unico
-- **Secondario**: `#8b6914` (accent-secondary) - Oro scuro unico
+- **Primario**: `#0ea5e9` (accent-primary) - Celeste scuro
+- **Secondario**: `#38bdf8` (accent-secondary) - Celeste chiaro
+- **Hover**: `#7dd3fc` (accent-hover) - Celeste brillante
+- **Background**: `#bae6fd` (accent-bg) - Celeste tenue
 
 ### Regole di Utilizzo
 - **SEMPRE** usa il tema scuro come base
-- **SEMPRE** usa i colori oro per elementi interattivi e accent
-- **MAI** usare colori verde (sostituiti con oro)
+- **SEMPRE** usa i colori celeste per elementi interattivi e accent
+- **MAI** usare colori oro o verde (sostituiti con celeste)
 - **SEMPRE** mantieni il contrasto per accessibilità
 
 ## 📁 STRUTTURA CARTELLE DEL PROGETTO (OBBLIGATORIO!)
@@ -145,10 +150,16 @@ import { supabase } from '../pages/auth/supabaseClient'
 
 ### 📋 SPECIFICHE PROGETTO (CRITICO!)
 - **SEMPRE** consulta i file nella cartella `Specifiche tecniche/` per le specifiche del progetto
-- **NON** utilizzare più il file `Specifiche_tecniche.md` come riferimento principale
-
-- Il file `Specifiche_tecniche.md` serve solo come **indice generale** con link ai file specifici
+- **SEMPRE** usa la palette di colori nero e celeste definita in `color_palette_guide.md`
+- **SEMPRE** consulta `component_examples.md` per esempi di implementazione
 - **SEMPRE** verifica che le implementazioni rispettino le specifiche dettagliate nei file di ruolo
+
+### 🎨 PALETTE COLORI (OBBLIGATORIO!)
+- **SEMPRE** usa il tema scuro come base
+- **SEMPRE** usa i colori celeste per elementi interattivi e accent
+- **MAI** usare colori oro o verde (sostituiti con celeste)
+- **SEMPRE** mantieni il contrasto per accessibilità
+- **SEMPRE** consulta `color_palette_guide.md` per dettagli completi
 
 ## 🚀 DEPLOY
 - Verifica sempre che il `.vercelignore` sia corretto prima del deploy

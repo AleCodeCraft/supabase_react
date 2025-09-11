@@ -29,11 +29,11 @@ export const usePWAInstall = () => {
   // Gestisce l'evento beforeinstallprompt
   useEffect(() => {
     const handleBeforeInstallPrompt = (e) => {
-      // Previene la visualizzazione automatica del prompt
-      e.preventDefault()
       // Salva l'evento per mostrarlo più tardi
       setDeferredPrompt(e)
       setCanInstall(true)
+      // Previene la visualizzazione automatica del prompt solo se abbiamo salvato l'evento
+      e.preventDefault()
     }
 
     // Gestisce l'evento appinstalled
@@ -54,11 +54,14 @@ export const usePWAInstall = () => {
 
   // Funzione per installare l'app
   const installApp = useCallback(async () => {
-    if (!deferredPrompt) return false
+    if (!deferredPrompt) {
+      console.warn('Nessun prompt di installazione disponibile')
+      return false
+    }
 
     try {
       // Mostra il prompt di installazione
-      deferredPrompt.prompt()
+      await deferredPrompt.prompt()
       
       // Aspetta la risposta dell'utente
       const { outcome } = await deferredPrompt.userChoice
@@ -71,10 +74,14 @@ export const usePWAInstall = () => {
         return true
       } else {
         console.log('❌ Utente ha rifiutato l\'installazione')
+        // Non resettare il prompt, l'utente potrebbe voler riprovare
         return false
       }
     } catch (error) {
       console.error('Errore durante l\'installazione:', error)
+      // In caso di errore, resetta il prompt
+      setDeferredPrompt(null)
+      setCanInstall(false)
       return false
     }
   }, [deferredPrompt])
@@ -84,6 +91,7 @@ export const usePWAInstall = () => {
     // Salva la preferenza dell'utente nel localStorage
     localStorage.setItem('pwa-install-dismissed', 'true')
     setCanInstall(false)
+    // Non resettare il deferredPrompt, potrebbe essere riutilizzato
   }, [])
 
   // Controlla se l'utente ha già rifiutato l'installazione

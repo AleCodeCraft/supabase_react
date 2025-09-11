@@ -1,17 +1,30 @@
 <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-  <!-- White background with rounded corners -->
-  <rect width="120" height="120" rx="20" ry="20" fill="#ffffff"/>
+  <!-- Dark background with rounded corners -->
+  <rect width="120" height="120" rx="20" ry="20" fill="#1a1a1a"/>
   
-  <!-- Outer hexagon (nero) - perfectly centered -->
-  <polygon points="60,16 100,36 100,82 60,102 20,82 20,34" fill="#000000"/>
+  <!-- Outer circle (celeste scuro) -->
+  <circle cx="60" cy="60" r="45" fill="#0ea5e9"/>
   
-  <!-- Inner hexagon (oro scuro) - perfectly centered -->
-  <polygon points="60,26 90,41 90,77 60,92 30,77 30,41" fill="#8b6914"/>
+  <!-- Inner circle (celeste chiaro) -->
+  <circle cx="60" cy="60" r="35" fill="#38bdf8"/>
   
-  <!-- White accent in gold hexagon -->
-  <polygon points="60,34 80,44 80,74 60,84 40,74 40,44" fill="#ffffff" opacity="0.8"/>
+  <!-- Central circle (celeste brillante) -->
+  <circle cx="60" cy="60" r="25" fill="#7dd3fc"/>
   
-  <!-- Central "A" letter (nero) - perfectly centered -->
-  <text x="60" y="62" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#000000" text-anchor="middle" dominant-baseline="middle">A</text>
+  <!-- React atom symbol -->
+  <g transform="translate(60, 60)">
+    <!-- Central nucleus -->
+    <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+    
+    <!-- Electron orbits -->
+    <ellipse cx="0" cy="0" rx="18" ry="8" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+    <ellipse cx="0" cy="0" rx="18" ry="8" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6" transform="rotate(60)"/>
+    <ellipse cx="0" cy="0" rx="18" ry="8" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6" transform="rotate(120)"/>
+    
+    <!-- Electrons -->
+    <circle cx="18" cy="0" r="3" fill="#ffffff"/>
+    <circle cx="-9" cy="15.6" r="3" fill="#ffffff"/>
+    <circle cx="-9" cy="-15.6" r="3" fill="#ffffff"/>
+  </g>
   
 </svg>
